@@ -1,0 +1,122 @@
+{
+  "definitions": {
+    "ListPrice": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "title": "admin/list-price.title",
+          "description": "admin/list-price.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/list-price.default"
+        }
+      }
+    },
+    "SellingPrice": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "title": "admin/selling-price.title",
+          "description": "admin/selling-price.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/selling-price.default"
+        }
+      }
+    },
+    "SpotPrice": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "title": "admin/spot-price.title",
+          "description": "admin/spot-price.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/spot-price.default"
+        }
+      }
+    },
+    "SpotPriceSavings": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "title": "admin/spot-price-savings.title",
+          "description": "admin/spot-price-savings.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/spot-price-savings.default"
+        }
+      }
+    },
+    "Savings": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "title": "admin/savings.title",
+          "description": "admin/savings.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/savings.default"
+        }
+      }
+    },
+    "Installments": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "title": "admin/installments.title",
+          "description": "admin/installments.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/installments.default"
+        }
+      }
+    },
+    "InstallmentsListItem": {
+      "title": "admin/installments-list-item.title",
+      "type": "object",
+      "properties": {
+        "$ref": "app:vtex.product-price#/definitions/Installments/properties"
+      }
+    },
+    "ListPriceRange": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "title": "admin/list-price-range-message.title",
+          "description": "admin/list-price-range-message.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/list-price-range-message.default"
+        },
+        "noRangeMessage": {
+          "title": "admin/list-price-range-no-range-message.title",
+          "description": "admin/list-price-range-no-range-message.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/list-price-range-no-range-message.default"
+        }
+      }
+    },
+    "SellingPriceRange": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "title": "admin/selling-price-range-message.title",
+          "description": "admin/selling-price-range-message.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/selling-price-range-message.default"
+        },
+        "noRangeMessage": {
+          "title": "admin/selling-price-range-no-range-message.title",
+          "description": "admin/selling-price-range-no-range-message.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/selling-price-range-no-range-message.default"
+        }
+      }
+    },
+    "SellerName": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "title": "admin/seller-name.title",
+          "description": "admin/seller-name.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/seller-name.default"
+        }
+      }
+    }
+  }
+}
