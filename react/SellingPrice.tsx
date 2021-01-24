@@ -43,19 +43,20 @@ function SellingPrice({ message = messages.default.id, markers = [] }: Props) {
 
   const commercialOffer = availableSeller?.commertialOffer
   if (!commercialOffer || commercialOffer?.AvailableQuantity <= 0) {
-    console.log("No hay commercialOffer o la cantidad es menor igual a cero")
+    //console.log("No hay commercialOffer o la cantidad es menor igual a cero")
     return null
   }
-  console.log('%c NAME!!! ', 'background: #222; color: #bada55')
+
+  //console.log('%c NAME!!! ', 'background: #222; color: #bada55')
   //console.log(commercialOffer.teasers[0].name)
 
   const bestPromotion = () => {
     const teasers = commercialOffer?.teasers[0]?.name
-    const discountHighlights = commercialOffer?.discountHighlights[1]?.name
+    const discountHighlights = commercialOffer?.discountHighlights[0]?.name
     console.log("\n")
-    console.log(commercialOffer.Price)
-    console.log(teasers)
-    console.log(discountHighlights)
+    console.log("Precio", commercialOffer.Price)
+    console.log("Teasers", teasers)
+    console.log("DiscountHighlights", discountHighlights)
     console.log("\n")
 
 

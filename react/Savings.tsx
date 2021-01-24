@@ -55,7 +55,7 @@ function Savings({ message = messages.default.id, markers = [] }: Props) {
   //LOGICA DE PROMO
   const bestPromotion = () => {
     const teasers = commercialOffer?.teasers[0]?.name
-    const discountHighlights = commercialOffer?.discountHighlights[1]?.name
+    const discountHighlights = commercialOffer?.discountHighlights[0]?.name
 
     const teasersList = teasers?.split("-")
     const discountHighlightsList = discountHighlights?.split("-")
