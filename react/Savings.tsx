@@ -66,7 +66,7 @@ function Savings({ message = messages.default.id, markers = [] }: Props) {
     const discountValue = (promotion: any ): number => {
       if (promotion == undefined) {
         return 0
-      } else if (promotion?.length == 1){
+      } else if (promotion?.length < 5){
         return 0
       }
 
@@ -99,7 +99,11 @@ function Savings({ message = messages.default.id, markers = [] }: Props) {
 
   const getDiscount = () => {
     const promotion = bestPromotion()
+    const length = promotion?.length ?? 0
+
     if (!promotion) {
+      return 0
+    } else if (length < 4) {
       return 0
     } else {
       const percentaje: any = promotion?.[4]
