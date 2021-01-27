@@ -49,18 +49,16 @@ function ListPrice({ message = messages.default.id, markers = [] }: Props) {
 
   //LOGICA DE PROMO
   const bestPromotion = () => {
-    const teasers = commercialOffer?.teasers[0]?.name
-    const discountHighlights = commercialOffer?.discountHighlights[0]?.name
-    const clusterHighlights = product?.clusterHighlights[0]?.name
+    const teasers = commercialOffer?.teasers[0]?.name ?? ""
+    const discountHighlights = commercialOffer?.discountHighlights[0]?.name ?? ""
+    const clusterHighlights = product?.clusterHighlights[0]?.name ?? ""
     
     const teasersList = teasers?.split("-")
     const discountHighlightsList = discountHighlights?.split("-")
     const clusterHighlightsList = clusterHighlights?.split("-")
 
-    const discountValue = (promotion: any ): number => {
-      if (promotion == undefined) {
-        return 0
-      } else if (promotion?.length < 5){
+    const discountValue = (promotion: any): number => {
+      if (promotion[0] !== "PROMO") {
         return 0
       }
       const percentaje: any = promotion?.[4]
@@ -84,14 +82,18 @@ function ListPrice({ message = messages.default.id, markers = [] }: Props) {
         list: clusterHighlightsList
       }
     ]
-    
-    if (discountsList[0].value == discountsList[1].value && discountsList[0].value == discountsList[2].value){
+
+    if (discountsList[0].value == discountsList[1].value && discountsList[0].value == discountsList[2].value) {
       return discountsList[0].list
     }
 
     const sortedDiscountsList = discountsList.sort((a, b) => b.value - a.value)
 
-    return sortedDiscountsList[0].list
+    if (sortedDiscountsList[0].value != 0) {
+      return sortedDiscountsList[0].list
+    } else {
+      return null
+    }
   }
 
 
@@ -107,7 +109,7 @@ function ListPrice({ message = messages.default.id, markers = [] }: Props) {
       const percentaje: any = promotion?.[4]
       const listOfNumbers: any = promotion?.[3]?.toString().split(",")
       const numberOfProducts: number = listOfNumbers?.length
-      const sortedList = listOfNumbers.sort((a: number,b: number) => b - a)
+      const sortedList = listOfNumbers.sort((a: number, b: number) => b - a)
       const lastProduct = sortedList[0]
 
       const discount = 1 - (lastProduct - numberOfProducts * percentaje) / lastProduct
