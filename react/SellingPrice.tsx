@@ -45,16 +45,42 @@ function SellingPrice({ message = messages.default.id, markers = [] }: Props) {
     return null
   }
 
+  //LOGICA DE PROMO
   const bestPromotion = () => {
-    const teasers = commercialOffer?.teasers[0]?.name ?? ""
-    const discountHighlights = commercialOffer?.discountHighlights[0]?.name ?? ""
-    const clusterHighlights = product?.clusterHighlights[0]?.name ?? ""
-
-    const teasersList = teasers?.split("-")
-    const discountHighlightsList = discountHighlights?.split("-")
-    const clusterHighlightsList = clusterHighlights?.split("-")
+    const teasers = commercialOffer?.teasers
+    const discountHighlights = commercialOffer?.discountHighlights
+    const clusterHighlights = product?.clusterHighlights
+    
+    const bestPromoByType = (promotion: any) => {
+      if (promotion != undefined){
+        if (promotion.length>1){
+          let bestPromo;
+          for(let i=0; i<promotion.length; i++){
+            const promo = promotion[i].name
+            
+            const splitedPromo = promo.split("-")
+            const discount = discountValue(splitedPromo)
+            const lastDiscount = discountValue(bestPromo)
+            if (discount>=lastDiscount){
+              bestPromo = promotion[i]
+            }
+          }
+          return bestPromo.name
+        } else if (promotion.length == 1){
+          return promotion[0].name
+        } else {
+          return null
+        }
+      } else {
+        return null
+      }
+      
+    }
 
     const discountValue = (promotion: any): number => {
+      if (promotion == undefined){
+        return 0
+      }
       if (promotion[0] !== "PROMO") {
         return 0
       }
@@ -65,6 +91,10 @@ function SellingPrice({ message = messages.default.id, markers = [] }: Props) {
       return numberOfProducts * percentaje
     }
 
+    const teasersList = bestPromoByType(teasers)?.split("-") ?? ""
+    const discountHighlightsList =  bestPromoByType(discountHighlights)?.split("-") ?? ""
+    const clusterHighlightsList =  bestPromoByType(clusterHighlights)?.split("-") ?? ""
+    
     const discountsList = [
       {
         value: discountValue(teasersList),
