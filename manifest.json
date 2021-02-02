@@ -1,6 +1,6 @@
 {
   "vendor": "vtex",
-  "name": "product-price",
+  "name": "carrefourarg-product-price",
   "version": "1.11.1",
   "title": "VTEX Product Price",
   "description": "Components used to show everything price related in the context of the product",
