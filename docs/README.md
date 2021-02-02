@@ -20,7 +20,7 @@ In your theme's `manifest.json`, add the Product Price app as a dependency:
 
 ```json
 "dependencies": {
-  "vtex.product-price": "1.x"
+  "vtex.carrefourarg-product-price": "1.x"
 }
 ```
   
